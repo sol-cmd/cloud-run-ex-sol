@@ -1,4 +1,4 @@
-gcloud run deploy cloud-run-ex \
+gcloud run deploy cloud-run-ex-sol \
   --source=. \
   --region=us-east4 \
   --allow-unauthenticated \
@@ -7,11 +7,11 @@ gcloud run deploy cloud-run-ex \
 
 
 gcloud run revisions list \
-  --service=cloud-run-ex \
+  --service=cloud-run-ex-sol \
   --region=us-east4
 
 
 
-gcloud run services update-traffic cloud-run-ex  \
-  --to-revisions be-a-man-level-10-00001-jd8=50,be-a-man-level-10-00002-gm5=50 \
+gcloud run services update-traffic cloud-run-ex-sol  \
+  --to-revisions cloud-run-ex-sol-00001-<xxx>=50,cloud-run-ex-sol-00002-<xxx>=50 \
   --region us-east4
