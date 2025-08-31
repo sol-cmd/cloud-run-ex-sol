@@ -1,0 +1,17 @@
+gcloud run deploy cloud-run-ex \
+  --source=. \
+  --region=us-east4 \
+  --allow-unauthenticated \
+  --set-env-vars="HEADER_TEXT=Hello from Google Cloud Run,FLASK_DEBUG=false,IMAGE_URL=https://picsum.photos/400/300"
+
+
+
+gcloud run revisions list \
+  --service=cloud-run-ex \
+  --region=us-east4
+
+
+
+gcloud run services update-traffic cloud-run-ex  \
+  --to-revisions be-a-man-level-10-00001-jd8=50,be-a-man-level-10-00002-gm5=50 \
+  --region us-east4
